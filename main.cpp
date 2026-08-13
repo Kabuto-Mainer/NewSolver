@@ -2,10 +2,15 @@
 #include <cmath>
 
 int main() {
-    // пока коэффициенты просто зашиты в код
-    const double a = 1.0;
-    const double b = -3.0;
-    const double c = 2.0;
+    double a, b, c;
+
+    std::cout << "Введите коэффициенты a, b, c через пробел: ";
+    std::cin >> a >> b >> c;
+
+    if (a == 0) {
+        std::cout << "a не может быть равно 0, это не квадратное уравнение" << std::endl;
+        return 0;
+    }
 
     double discriminant = b * b - 4 * a * c;
 
