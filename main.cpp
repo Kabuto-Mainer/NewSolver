@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmath>
+#include "solver.h"
 
 int main() {
     double a, b, c;
@@ -12,18 +12,15 @@ int main() {
         return 0;
     }
 
-    double discriminant = b * b - 4 * a * c;
+    QuadraticResult result = solveQuadratic(a, b, c);
 
-    if (discriminant < 0) {
+    if (!result.hasRealRoots) {
         std::cout << "Действительных корней нет" << std::endl;
         return 0;
     }
 
-    double x1 = (-b + std::sqrt(discriminant)) / (2 * a);
-    double x2 = (-b - std::sqrt(discriminant)) / (2 * a);
-
-    std::cout << "x1 = " << x1 << std::endl;
-    std::cout << "x2 = " << x2 << std::endl;
+    std::cout << "x1 = " << result.x1 << std::endl;
+    std::cout << "x2 = " << result.x2 << std::endl;
 
     return 0;
 }
